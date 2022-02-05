@@ -1,0 +1,126 @@
+#BEGIN CODE
+
+#BEGIN DATE: 1/27/22
+#LAST CODE REVISION: 2/4/2022 3:27 PM EST
+
+#Omega Group/Ram Valud/Michael Walker/greenwood321
+
+
+import random #requested by client for issue 5 and 6
+
+#Each issue given a function
+
+def issue_One():
+    
+    number = int(input("Please enter a number: ")) #get number from user
+
+    print( (((((number + 2) * 3)-6) // 3)))  #calculations and print put in one statement
+
+def issue_Two():
+    
+    #Group one:
+    my_var1 = 7.0
+    my_var2 = 5
+    print(my_var1 % my_var2)
+
+    #Group two:
+    x = 4
+    y = 5
+    print(x//y)
+
+    #Group three:
+    30-3**2+8//3**2*10
+
+def issue_Three():
+    convert = input("Please enter your input: ") #input to be converted
+    print("As string: ",str(convert)) #converts to various forms
+    print("As an int: ",int(convert))
+    print("As a float: ",float(convert)) #if a string is entered, it cannot be converted to an int or float, and throws an error.
+
+def issue_Four():
+    print(2**2**3)   #each input printed as given by customer
+    print( 2**(2**3) )
+    print( (2**2)**3 )
+
+def issue_Five():
+    
+    print("##### SHIVER ME TIMBERS PIRATE GAME #####") #pirate themed
+
+    items = int(input("How many items in yer booty chest? "))
+    chest = []
+    
+    for i in range(items):
+        chest.append(input("Toss some booty into the chest: "))
+    
+    print("Yer chest: ")
+    print(chest)
+    balance = 100.00 #player starts with a pot of 100
+    
+    for i in range(len(chest) // 2):
+        chest[random.randrange(0,len(chest)-1, 1)] = "gold" #puts gold at random spots in chest
+
+    
+    while balance > 0: #while player still has money in the bank
+        print("Bank balance: ",balance)
+        wager = float(input("Put in yer wager: ")) #action for spin/bets
+        spin = random.randrange(0,len(chest)-1,1) #chooses random position in the chest to 'land' on
+        if chest[spin] == "gold":
+            
+            print("\nGood fortune befalls ye....") #players balance in bank is adjusted accordingly
+            balance += wager                         
+        else:
+            print("\nBad fortune befalls ye.....")
+            balance -= wager
+    
+    print("Bank balance: ",balance)
+
+    print("ARRGHHH.....game over!")
+
+    
+
+
+    
+def issue_Six():
+    print("Password Generator")
+
+    
+
+    letterList = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
+    numList = ["0","1","2","3","4","5","6","7","8","9"]
+    charList = ["!","@","#","$","%","&","(",")"] #lists are where we get password characters
+
+    for j in range(40): #generates 40 passwords to file
+
+        password = ""
+
+        for i in range(3):
+            password+=numList[(random.randrange(0,len(numList)-1,1))]
+            password+=letterList[(random.randrange(0,len(letterList)-1,1))]  #random password generated from random value 
+                                                                               # in three lists
+            password+=charList[(random.randrange(0,len(charList)-1,1))]
+
+        print("\n",password)
+
+        if password in ["password","1234","123","qwerty","12345","123456789","admin", "rockyou","iloveyou","daniel","secret"]:
+            print("Password not acceptable, not archived") #sample wordlist of most common passwords
+        else:
+            print("Password accepted and archived")
+            archive = open("passArchive.txt",'w') #archived and written to file
+            archive.write("\n" + password)
+        
+
+
+
+
+
+def main(): #main function, each issue function is called from here
+    issue_One()
+    issue_Two()
+    issue_Three()
+    issue_Four()
+    issue_Five()
+    issue_Six()
+
+if __name__ == "__main__":
+    main()
+
