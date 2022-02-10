@@ -1,0 +1,112 @@
+#BEGIN CODE
+
+#BEGIN DATE: 2/4/22
+#LAST CODE REVISION: 2/10/2022 2:01 PM EST
+
+
+
+import random #for problem 6
+
+def issue_One():
+    word = input("Please enter a string: \n")
+    
+    while word != "exit": #allows user to enter as many words as they want
+        print("You entered",word,"and its type is",type(word))
+        word = input("Please enter a string: \n")
+    
+def issue_Two():
+    
+    twinkle = """Twinkle, twinkle, little star,
+               \t How I wonder what you are!
+               \t\t Up above the world so high,     
+               \n\t\t\t Like a diamond in the sky,
+Twinkle, twinkle, little star,
+               \t How I wonder what you are.""" #formatted using \t, \n, to customer specifications
+    
+    print(twinkle)
+
+def issue_Three():
+    
+    radius = float(input("Please enter radius: ")) #cast input to float
+    print("r=",radius)
+    print("Area=",(radius**2) * 3.14) #r = 2* pi * r **2
+
+def issue_Four():
+    
+    vowel = input("Please enter a letter: ")
+    
+    while len(vowel) > 1: #error handling, in case more than one letter is entered
+        print("Please enter only a single letter.")
+        vowel = input("Please enter a letter: ")
+    
+    if vowel.lower() in ["a","e","i","o","u"]: #converts to lower in case uppercase was entered
+        print("You entered a vowel")
+        
+    else:
+        print("You entered a consonant")
+
+def issue_Five():
+    
+    comprehension = [x ** 4 for x in range(19)]; print(comprehension) #all in one line code
+    
+        
+def issue_Six():
+    
+    rouletteWheel = ["00","BLACK 28","RED 09","BLACK 26","RED 30","BLACK 11",
+                     "RED 07","BLACK 20","RED 32","BLACK 17","RED 05","BLACK 22","RED 34",
+                     "BLACK 15", "RED 03","BLACK 24","RED 36","BLACK 13","RED 01","0",
+                     "RED 27","BLACK 10","RED 25","BLACK 29",
+                     "RED 12","BLACK 8","RED 19","BLACK 31","RED 18","BLACK 06","RED 21",
+                     "BLACK 33", "RED 16","BLACK 04","RED 23","BLACK 35","RED 14","BLACK 02","0"
+                     ]
+    #list of possible roulette wheel choices, wheel used: 
+    # https://cdn5.vectorstock.com/i/1000x1000/72/59/american-roulette-wheel-vector-13367259.jpg
+
+    LOG = []
+    choose = input("Press enter to make a roulette wheel choice, or type exit to stop: ")
+    #allows user to choose as many times as they want
+
+    while choose != "exit":
+        choice = rouletteWheel[random.randrange(0,(len(rouletteWheel)-1),1)] #chooses random wheel number
+        print(choice)
+        LOG.append(choice)
+        
+        choose = input("Press enter to make a roulette wheel choice, or type exit to stop: ")
+        
+
+    print("Your spins: ")
+    print(LOG) #prints log of all user's spins
+
+
+def issue_Seven():
+
+    numGuests = int(input("Please enter of number of guests: "))
+
+    DinnerGuests = []  #both lists named as requested
+    GuestDates = []
+
+    for i in range(numGuests):
+        newGuest = input("Enter guest's name: ")
+        DinnerGuests.append(newGuest)
+        guestDate = input("Enter date invited, eg January 14th: ")
+        GuestDates.append(guestDate)
+
+    for j in range(numGuests):
+        if len(DinnerGuests[j]) > 8: #8 is cutoff for long ID tag
+            print("\n\t",DinnerGuests[j],"was invited on",GuestDates[j],"and has a LARGE ID tag.")
+        else:
+            print("\n\t",DinnerGuests[j],"was invited on",GuestDates[j],"and has a SMALL ID tag.")
+
+
+
+def main():
+    issue_One()  #main method, all issues functions called from here
+    issue_Two()
+    issue_Three()
+    issue_Four()
+    issue_Five()
+    issue_Six()
+
+if __name__ == "__main__":
+    main()
+
