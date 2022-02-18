@@ -1,5 +1,12 @@
 #BEGIN CODE
 
+#BEGIN DATE: 2/14/22
+#LAST REVISION: 2/17/22 10:00PM
+
+#Group: the Omega - Cypress International Equity Division
+#manager: Ram Fujitsu
+#lead tech:  Rich Alderman
+#project #: grant $3700
 
 
 
@@ -40,7 +47,7 @@ possible, and suddenly you are doing the impossible.\"
 
     print("The square root of",multiplication,"equals",sqFormat)
 
-    currentMonth = "February"
+    currentMonth = "February" #set variables
     currentDay = 12
 
     print("\n\t\tToday is day " + str(currentDay), "and the month is " + currentMonth) #Combination of concatenation and multiple arguments
