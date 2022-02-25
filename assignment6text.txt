@@ -1,0 +1,96 @@
+#BEGIN CODE
+
+#BEGIN DATE: 2/20/22
+#LAST REVISION: 2/24/22 10:22PM
+
+#Group: zion worship cult
+#manager: Ram vuduku
+#lead tech:  Rich eissen
+#project #: the zion project
+
+def issue_One(): #Work ticket one
+    
+    print("\"\"Double quotations\"\"")    #Strings formatted as requested in document
+    print("Apostrophe\'s")
+    multiLine = """multi
+line
+string """
+    print(multiLine)
+    oneLine = """this is a \
+string coded on multiple lines but \
+printed on one.\
+    """
+    print(oneLine)
+
+def issue_Two(): #Work ticket two
+    
+    print("String: mystring, Length: ",len("mystring"))
+    stringOne = "Hi"
+    stringTwo = "There"
+    print(stringOne + stringTwo)
+    print(stringOne + " " + stringTwo)
+    
+    slicing = "bazinga"
+    print(slicing[2:-1]) #slice function
+
+def issue_Three(): #Work ticket three
+    
+    myList = ["Animals", "Badger", "Honey Bee", "Honey Badger"] #given list
+    
+    lower =  [x.lower() for x in myList] #list comprehension for cleaner code
+    upper = [x.upper() for x in myList]
+
+    for x in lower:
+        print(x)
+    for j in upper:
+        print(j)
+
+    string1 = " Filet Mignon" #strings as given
+    string2 = "Brisket "
+    string3 = " Cheeseburger "
+
+    print("\n"+string1.replace(" ",""))
+    print(string2.replace(" ",""))
+    print(string3.replace(" ",""))
+
+    print("\n") #for cleaner output
+    print("Becomes".startswith("be"))
+    print("becomes".startswith("be"))
+    print("BEAR".startswith("be"))
+    print("bEautiful".startswith("be"))
+
+def issue_Four(): #Work ticket four
+    
+    myInt = "5"
+    print(int(myInt) * 10) #Int conversion
+
+    myFloat = "2.5"
+    print(float(myFloat) * 2) #Float conversion
+
+    strObj = "Led Zeppelin"
+    number = 1
+    print(strObj + " " + str(number))
+
+    firstNum = int(input("Enter the first number: "))
+    secondNum = int(input("Enter the second number: "))
+    print(firstNum, "multiplied by",secondNum,"is",float(firstNum * secondNum))
+
+    #Example of string find method
+
+    if "abcdefghelloijklmonopqrstuvwxyz".find("hello"):
+        print("Substring found!")
+    else:
+        print("Substring NOT found")
+
+
+
+
+def main():
+    issue_One()
+    issue_Two()
+    issue_Three()
+    issue_Four()
+   
+
+if __name__ == "__main__":
+    main()
