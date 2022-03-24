@@ -1,0 +1,79 @@
+
+##BEGIN CODE
+##START DATE: 3/20/2022
+##LAST REVISION: 3/23/2022 9:45PM
+
+##group: HALF-LIFE
+
+#manager: Ron Bass
+
+#lead tech: John Richards Sr.
+
+#project: After-Burner Elite
+
+
+import json
+
+
+
+#CMS REQUEST 1
+def sphere_volume(radius):
+    return (4/3) * (3.14) * (radius ** 3)
+
+#CMS REQUEST 2
+def print_range(lower,upper):
+    if(upper + 1 > lower):
+        print_range(lower, upper - 1)
+        print(upper)
+
+#CMS REQUEST 3
+def gcd(a,b):
+    while(b): #using euclidean algorithim
+       a, b = b, a % b
+    return a
+
+#CMS REQUEST 4
+def sales():
+    
+    sales_data = []
+    mydata = open("SalesJan2009.csv")
+    linecount = 0 #indexing in the sales_data list
+    
+    for line in mydata:
+        
+        stripline = line.replace('"',"") #remove quotes
+        scrape = stripline.split(",") #separate columns
+        sales_data.append({})#add new dictionary to list
+
+        
+        
+        sales_data[linecount]["TransactionDate"] = scrape[0] #assign parts of line to according dictionary key
+        sales_data[linecount]["Product"] = scrape[1]
+        sales_data[linecount]["Price"] = scrape[2]
+        sales_data[linecount]["PaymentType"] = scrape[3]
+        sales_data[linecount]["Name"] = scrape[4]
+        sales_data[linecount]["City"] = scrape[5]
+        sales_data[linecount]["State"] = scrape[6]
+        sales_data[linecount]["Country"] = scrape[7]
+        
+        linecount = linecount + 1 #for indexing in the sales_data list
+
+    with open('jData.json', 'w') as file: #store in .json file
+        json.dump(sales_data, file)
+
+    print("\nStored in json.")
+       
+
+
+def main():
+    print(sphere_volume(5))
+    print_range(15,20)
+    print(gcd(12,8))
+    sales()
+
+if __name__ == "__main__":
+    main()
+
+
+
+
